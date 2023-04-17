@@ -1,0 +1,11 @@
+.App__sidebar{
+	grid-area: sidebar;
+background-color: #4cb045;
+}
+.item{
+	margin: 1vw 0.5vw 0 1vw;
+	font-size: 2vh;
+	color: white;
+	font-weight: 700;
+	letter-spacing: 0.1vw;
+}

@@ -9,22 +9,6 @@
 	width: 80%;
 	margin: 0 auto;
 }
-.App__header{
-grid-area: header;
-background-color: #4cb045;
-}
-.header__logo{
-	height: 100%;
-}
-.header__logo img{
-	height: 100%;
-	/* width: 100%; */
-}
-.App__sidebar{
-	grid-area: sidebar;
-background-color: #4cb045;
-}
-.App__profile{
-	grid-area: profile;
-background-color: #45696a;
-}
+
+
+
