@@ -1,0 +1,20 @@
+
+.item{
+	color: rgb(255, 255, 255);
+	font-size: 2vw;
+	letter-spacing: 0.1vw;
+	margin: 1vw 0 0 0;
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	gap: 2vw;
+}
+.item img{
+	height: 100%;
+	border-radius: 50%;
+	/* display: inline-block; */
+}
+.like{
+	color: red;
+	margin: 1vw 0 0 0.5vw;
+}
