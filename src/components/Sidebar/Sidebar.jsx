@@ -6,11 +6,11 @@ const Sidebar = ()=>{
 	return(
 		<nav className={`${css.App__sidebar} ${css.sidebar}`}>
 				<ul>
-					<li className={`${css.item}`}>Profile</li>
-					<li className={`${css.item}`}>Messages</li>
-					<li className={`${css.item}`}>News</li>
-					<li className={`${css.item}`}>Music</li>
-					<li className={`${css.item}`}>Settings</li>
+					<li className={`${css.item}`}><a href="/profile">Profile</a></li>
+					<li className={`${css.item}`}><a href="/messages">Messages</a></li>
+					<li className={`${css.item}`}><a href="/news">News</a></li>
+					<li className={`${css.item}`}><a href="/music">Music</a></li>
+					<li className={`${css.item}`}><a href="/settings">Settings</a></li>
 				</ul>
 			</nav>
 	)
