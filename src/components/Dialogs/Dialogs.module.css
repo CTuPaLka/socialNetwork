@@ -2,3 +2,47 @@
 	/* grid-area: dialogs; */
 background-color: #45696a;
 }
+
+.dialogs{
+	display: grid;
+	grid-template-columns: 2fr 8fr;
+	grid-template-areas: 
+	"name message";
+}
+.dialogs__item{
+	height: 5vh;
+	display: flex;
+	margin: 1vh 0 0 1vh;
+	align-items: center;
+}
+.dialogs__item:last-child{
+	margin-bottom: 1vh;
+}
+.dialogs__item img{
+	height: 100%;
+	border-radius: 50%;
+	display: inline-block;
+}
+.dialogs__names{
+	grid-area: name;
+}
+.dialogs__name{
+	margin: 0 0 0 2vw;
+	/* padding: 1vh; */
+	font-size: 2.5vh; 
+	display: block;
+	color: white;
+}
+
+.dialogs__active{
+	color: rgb(77, 238, 216);
+}
+
+.dialogs__messages{
+	grid-area: message;
+}
+
+.dialogs__message{
+	color: rgb(77, 238, 216);
+	margin: 2vh 0 0 2vh;
+}

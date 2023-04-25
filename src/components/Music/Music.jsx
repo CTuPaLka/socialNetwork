@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Music.module.css';
 
-const Music = ()=>{
+const Music = (props)=>{
 	return(
 		<div className={`${css.App__music}`}>
 				Музыка

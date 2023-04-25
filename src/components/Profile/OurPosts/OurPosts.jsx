@@ -2,14 +2,14 @@ import React from 'react';
 import css from './OurPosts.module.css';
 import Posts from './Posts/Posts';
 
-const OurPosts = () => {
+const OurPosts = (props) => {
 	return (
 		<div>
 			<div className={`${css.item}`}>
 				my posts
 				<div>
-					<textarea></textarea>
-					<button>Add Post</button>
+					<div><textarea></textarea></div>
+					<div><button>Add Post</button></div>
 				</div>
 				<div className={`${css.posts}`}>
 					new posts

@@ -1,0 +1,9 @@
+.content__photo img{
+	width: 100%;
+}
+.ava{
+	color: rgb(247, 151, 151);
+	font-size: 2vw;
+	letter-spacing: 0.1vw;
+	margin: 1vw 0 1vw 1vw;
+}
