@@ -1,0 +1,8 @@
+.dialogs__messages{
+	grid-area: message;
+}
+
+.dialogs__message{
+	color: rgb(77, 238, 216);
+	margin: 2vh 0 0 2vh;
+}
