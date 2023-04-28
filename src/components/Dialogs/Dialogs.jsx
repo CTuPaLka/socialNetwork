@@ -7,9 +7,9 @@ import Friends from './Friends/Friends';
 const Dialogs = (props) => {
 	return (
 		<div className={`${css.App__dialogs} ${css.dialogs}`}>
-			<Friends/>
+			<Friends data={props.data.friendsData}/>
 
-			<Messages/>
+			<Messages data={props.data.messagesData}/>
 		</div>
 	)
 }

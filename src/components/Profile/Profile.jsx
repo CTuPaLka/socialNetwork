@@ -7,7 +7,7 @@ const Profile = (props) => {
 	return (
 		<div className={`${css.App__profile} ${css.profile}`}>
 			<ProfileInfo/>
-			<OurPosts />
+			<OurPosts data={props.data} />
 		</div>
 	)
 }

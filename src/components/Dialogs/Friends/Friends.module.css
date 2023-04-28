@@ -8,16 +8,18 @@
 	margin-bottom: 1vh;
 }
 .dialogs__item img{
-	width: 4vw;
+	width: 2.5vw;
+   height: 2.5vw;
 	height: 100%;
 	border-radius: 50%;
 	display: inline-block;
 }
 .dialogs__names{
 	grid-area: name;
+	border-right: 0.1vw solid rgb(86, 26, 38);
 }
 .dialogs__name{
-	margin: 0 0 0 2vw;
+	margin: 0 0 0 1vw;
 	font-size: 2.5vh; 
 	display: block;
 	color: white;
