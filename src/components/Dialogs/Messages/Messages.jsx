@@ -3,7 +3,14 @@ import css from './Messages.module.css';
 
 
 const Messages = (props) => {
-	let MessagesItems = props.data.map(item=> {return (<div className={css.dialogs__message}>{item.message}</div>)}) 
+
+	let MessagesItems = props.data.map(item=> {
+		let position;
+		if(item.who === 'me'){
+			position = {textAlign: "right"}
+		}
+		return (<div className={css.dialogs__message} style={position}>{item.message}</div>)
+	}) 
 	return (
 		<div className={css.dialogs__messages}>
 			{MessagesItems}

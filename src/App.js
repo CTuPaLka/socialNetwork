@@ -17,7 +17,7 @@ const App = (props) => {
 		<BrowserRouter>
 			<div className='App'>
 				<Header />
-				<Sidebar />
+				<Sidebar data={props.data.Sidebar}/>
 				<Routes>
 					<Route path='/'  element={<Profile data={props.data.Profile}/>}/>
 					<Route path='/profile'   element={<Profile data={props.data.Profile}/>}/>
