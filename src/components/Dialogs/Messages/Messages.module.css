@@ -1,8 +1,36 @@
 .dialogs__messages{
 	grid-area: message;
+	position: relative;
 }
-
 .dialogs__message{
 	color: rgb(77, 238, 216);
 	margin: 2vh 2vh 0 2vh;
+}
+.message__myMessage{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1vw;
+}
+.myMessage__textarea{
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+}
+.myMessage__textarea textarea{
+	margin: 0 2vw 1vw 2vw;
+	width: 100%;
+}
+.myMessage__button{
+	display: flex;
+	align-items: center;
+	flex: 0 0 10%;
+}
+.myMessage__button button{
+	margin: 0 2vw 1vw 2vw;
+	width: 100px;
+	height: 100%;
 }
