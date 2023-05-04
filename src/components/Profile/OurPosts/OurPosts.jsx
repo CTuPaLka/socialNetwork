@@ -8,7 +8,7 @@ const OurPosts = (props) => {
 	let newPost = React.createRef();
 	let addNewPost =()=>{
 		let postContent = newPost.current.value;
-		alert(postContent);
+		props.addPost(postContent)
 	}
 
 	return (
@@ -21,7 +21,7 @@ const OurPosts = (props) => {
 				</div>
 				<div className={css.posts}>
 					new posts
-					<Posts data={props.data}/>
+					<Posts data={props.data} />
 				</div>
 			</div>
 		</div>

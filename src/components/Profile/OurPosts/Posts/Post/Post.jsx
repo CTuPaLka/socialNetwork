@@ -22,7 +22,7 @@ const RenderPost = (props)=>{
 const Post = (props) => {
 	
 	return (
-		<RenderPost data={props.data}/>
+		<RenderPost data={props.data} />
 	)
 	}
 
