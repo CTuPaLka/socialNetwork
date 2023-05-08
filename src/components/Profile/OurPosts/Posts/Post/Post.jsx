@@ -3,8 +3,7 @@ import css from './Post.module.css';
 
 
 const RenderPost = (props)=>{
-	// debugger
-	return props.data.postsData.map(el=>{
+	return props.state.postsData.map(el=>{
 		return(
 			<div>
 				<div className={css.item}>
@@ -22,7 +21,7 @@ const RenderPost = (props)=>{
 const Post = (props) => {
 	
 	return (
-		<RenderPost data={props.data} />
+		<RenderPost state={props.state} />
 	)
 	}
 

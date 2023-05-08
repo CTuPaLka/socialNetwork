@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { addPost } from './Redux/State';
-// import data, { addPost } from './Redux/State';
 
 
 
 
 
- export let rerenderApp= (state)=>{const root = ReactDOM.createRoot(document.getElementById('root'));
+ export let rerenderApp= (state)=>{
+	const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<App data={state} addPost={addPost}/>

@@ -15,7 +15,7 @@ const Sidebar = (props) => {
 				<NavLink className={setActive()} to="/music">Music</NavLink>
 				<NavLink className={setActive()} to="/settings">Settings</NavLink>
 			</nav>
-			<SidebarFriends data={props.data.friends}/>
+			<SidebarFriends state={props.state.friends}/>
 		</div>
 		
 	)

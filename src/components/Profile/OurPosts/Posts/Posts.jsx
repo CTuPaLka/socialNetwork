@@ -4,9 +4,8 @@ import Post from './Post/Post';
 
 
 const Posts = (props) => {
-	console.log(props.data)
 	return (
-		<Post data={props.data} addPost={props.addPost}/>
+		<Post state={props.state} addPost={props.addPost}/>
 	)
 }
 

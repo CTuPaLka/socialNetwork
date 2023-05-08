@@ -12,21 +12,21 @@ const SidebarFriends = (props) => {
 
 function ReturnFriends(props) {
 	let arrayOfIndex = [];
-	let newIndex = (number) => Math.floor(Math.random() * props.data.length)
+	let newIndex = (number) => Math.floor(Math.random() * props.state.length)
 
 	generateArray(arrayOfIndex, newIndex);
    //! Альтернативный метод создания массива с друзьями
 	// let items = []
 	// arrayOfIndex.forEach(i => {
 	// 		items.push(<div className={css.friends__item}>
-	// 			<div className="friends__img"><img src={props.data[i].imgUrl} alt="/\ox" /></div>
-	// 			<div className="friends__name">{props.data[i].name}</div>
+	// 			<div className="friends__img"><img src={props.state[i].imgUrl} alt="/\ox" /></div>
+	// 			<div className="friends__name">{props.state[i].name}</div>
 	// 		</div>)
 	// 	})
 	let items = arrayOfIndex.map(i => {
 		return <div className={css.friends__item}>
-			<div className="friends__img"><img src={props.data[i].imgUrl} alt="/\ox" /></div>
-			<div className="friends__name">{props.data[i].name}</div>
+			<div className="friends__img"><img src={props.state[i].imgUrl} alt="/\ox" /></div>
+			<div className="friends__name">{props.state[i].name}</div>
 		</div>
 	})
 

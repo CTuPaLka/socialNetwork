@@ -10,7 +10,7 @@ const Messages = (props) => {
 		alert(message);
 	}
 
-	let MessagesItems = props.data.map(item => {
+	let MessagesItems = props.state.map(item => {
 		let position;
 		if (item.who === 'me') {
 			position = { textAlign: "right" }
