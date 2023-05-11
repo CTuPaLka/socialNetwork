@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Store} from './Redux/State'; // data (оно же state)
+import { Store } from './Redux/State'; // data (оно же state)
 // import state, { addPost } from './Redux/State';
 import App from './App';
 
@@ -11,14 +11,18 @@ import App from './App';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let rerenderApp= (state)=>{
-root.render(
-	<React.StrictMode>
-		<App state={state} updatePostText={Store.updatePostText.bind(Store)} addPost={Store.addPost.bind(Store)}/>
-	</React.StrictMode>
-);}
+export let rerenderApp = (state) => {
+	root.render(
+		<React.StrictMode>
+			<App state={state} dispatch={Store.dispatch.bind(Store)} />
+		</React.StrictMode>
+	);
+}
 
+// вызываем метод перерисовки с учетом текущего state 
 rerenderApp(Store.getState());
+
+// методу Store subscribe мы отдаем в качестве параметра функцию rerenderApp
 Store.subscribe(rerenderApp);
 
 
