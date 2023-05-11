@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './OurPosts.module.css';
 import Posts from './Posts/Posts';
+import { addPostCreator, updatePostTextCreator } from '../../../Redux/State';
 
 
 const OurPosts = (props) => {
@@ -12,7 +13,7 @@ const OurPosts = (props) => {
 	 * 2) вызываем addPost передав переменную text
 	 */
 	let addNewPost =()=>{
-		props.dispatch({ type: "ADD-POST"});
+		props.dispatch(addPostCreator());
 	}
 
 	/**
@@ -22,7 +23,7 @@ const OurPosts = (props) => {
 	 */
 	let changePost = ()=>{
 		let text = newPost.current.value;
-		props.dispatch({ type: "UPDATE-POST-TEXT", newText: text});
+		props.dispatch(updatePostTextCreator(text));
 	}
 
 	return (

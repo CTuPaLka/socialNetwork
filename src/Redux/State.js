@@ -1,4 +1,11 @@
+export const addPost = "ADD-POST";
+export const updatePostText = "UPDATE-POST-TEXT";
 
+export const addPostCreator = () => ({ type: addPost });
+export const updatePostTextCreator = (newText) => ({
+	type: updatePostText,
+	newText: newText,
+});
 
 // самый главный обьект класс, который все хранит в себе
 export let Store = {
@@ -44,10 +51,10 @@ export let Store = {
 		}
 	},
 
-/**
- * 
- * @returns данные, хранящиеся в _state. _state приватный и не может быть вызван из "внешнего мира", но может быть вызван из метода.
- */
+	/**
+	 * 
+	 * @returns данные, хранящиеся в _state. _state приватный и не может быть вызван из "внешнего мира", но может быть вызван из метода.
+	 */
 	getState() {
 		return this._state;
 	},
@@ -66,8 +73,8 @@ export let Store = {
 		this._callSubscriber = observe;
 	},
 
-	dispatch(action){
-		if(action.type === addPost){
+	dispatch(action) {
+		if (action.type === addPost) {
 			let newPost = {
 				// content присваиваем значение newPostText из _state
 				content: this._state.Profile.newPostText,
@@ -77,11 +84,11 @@ export let Store = {
 			this._state.Profile.postsData.push(newPost);
 			this._callSubscriber(this._state);
 			this._state.Profile.newPostText = "";
-		}else if(action.type === updatePostText){
+		} else if (action.type === updatePostText) {
 			// изменяем текущий newPostText на новый, который нам пришел
-		this._state.Profile.newPostText = action.newText;
-		// перерисовываем spa
-		this._callSubscriber(this._state);
+			this._state.Profile.newPostText = action.newText;
+			// перерисовываем spa
+			this._callSubscriber(this._state);
 		}
 	},
 
@@ -91,7 +98,7 @@ export let Store = {
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	// ! Все методы далее не используются и записаны только затем, чтобы оставить описание к методам в dispatch(action).
-	
+
 	/**
 	 * метод добавления поста
 	 * 1newPost шаблон нового поста, который мы пушим в _state
