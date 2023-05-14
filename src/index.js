@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Store } from './Redux/State'; // data (оно же state)
-// import state, { addPost } from './Redux/State';
 import App from './App';
-
+import  store  from './Redux/redux-store';
 
 
 
@@ -14,16 +12,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderApp = (state) => {
 	root.render(
 		<React.StrictMode>
-			<App state={state} dispatch={Store.dispatch.bind(Store)} />
+			<App state={state} dispatch={store.dispatch.bind(store)} />
 		</React.StrictMode>
 	);
 }
 
 // вызываем метод перерисовки с учетом текущего state 
-rerenderApp(Store.getState());
+rerenderApp(store.getState());
 
-// методу Store subscribe мы отдаем в качестве параметра функцию rerenderApp
-Store.subscribe(rerenderApp);
+// методу store subscribe мы отдаем в качестве параметра функцию rerenderApp
+store.subscribe(()=>{
+	let state = store.getState()
+	rerenderApp(state)
+});
 
 
 // If you want to start measuring performance in your app, pass a function

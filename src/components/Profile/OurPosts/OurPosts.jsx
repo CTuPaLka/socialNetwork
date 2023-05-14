@@ -1,18 +1,18 @@
 import React from 'react';
 import css from './OurPosts.module.css';
 import Posts from './Posts/Posts';
-import { addPostCreator, updatePostTextCreator } from '../../../Redux/State';
+import { addPostCreator, updatePostTextCreator } from '../../../Redux/ProfileReducer';
 
 
 const OurPosts = (props) => {
 	// создали ссылку на textarea, чтобы взаимодействовать с ним. QuerySelector, getElementById и т.д. в react  не работает
-	let newPost = React.createRef();
+	// let newPost = React.createRef();
 	/**
 	 * функция публикации нового поста
 	 * 1) создали переменную, принимающую текущее значение textarea с помощью ...current.value
 	 * 2) вызываем addPost передав переменную text
 	 */
-	let addNewPost =()=>{
+	let addNewPost = () => {
 		props.dispatch(addPostCreator());
 	}
 
@@ -21,8 +21,8 @@ const OurPosts = (props) => {
 	 * 1) создаем локальную переменую, которая принимает значением текущее значение textarea
 	 * 2) вызываем updatePostText передав переменную text в качестве параметра
 	 */
-	let changePost = ()=>{
-		let text = newPost.current.value;
+	let changePost = (e) => {
+		let text = e.target.value;
 		props.dispatch(updatePostTextCreator(text));
 	}
 
@@ -31,10 +31,10 @@ const OurPosts = (props) => {
 			<div className={`${css.item}`}>
 				my posts
 				<div>
-					<div><textarea onChange={changePost} value={props.newPostText} ref={newPost}/></div>
+					<div><textarea onChange={changePost} value={props.newPostText} /></div>
 					<div><button onClick={addNewPost}>Add Post</button></div>
 				</div>
-				
+
 				<div className={css.posts}>
 					new posts
 					<Posts state={props.state} />

@@ -1,11 +1,9 @@
-export const addPost = "ADD-POST";
-export const updatePostText = "UPDATE-POST-TEXT";
+// ?? ВМЕСТО НАШЕГО STORE.JS  ТЕПЕРЬ ИСПОЛЬЗУЕМ REDUX В REDUX-STORE.JS
+// !----------------------------------------------------------------
 
-export const addPostCreator = () => ({ type: addPost });
-export const updatePostTextCreator = (newText) => ({
-	type: updatePostText,
-	newText: newText,
-});
+import dialogsReducer from "./DialogsReducer";
+import profileReducer from "./ProfileReducer";
+import sidebarReducer from "./SidebarReducer";
 
 // самый главный обьект класс, который все хранит в себе
 export let Store = {
@@ -47,7 +45,8 @@ export let Store = {
 				{ name: 'Tyusha Metelkin', id: '5', imgUrl: 'https://steamuserimages-a.akamaihd.net/ugc/1874059262520873740/DB4664B2709742EFB6F2421813CD4587BA216564/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false' },
 				{ name: 'Alex', id: '6', imgUrl: 'https://cdn.freelance.ru/images/att/1575043_900_600.png' },
 				{ name: 'Inokentyy', id: '7', imgUrl: 'https://static.wikia.nocookie.net/3521d6b9-ac47-42ec-b675-c5bdc15f06ef/scale-to-width/755' },
-			]
+			],
+			newMessageText: "",
 		}
 	},
 
@@ -74,22 +73,42 @@ export let Store = {
 	},
 
 	dispatch(action) {
-		if (action.type === addPost) {
-			let newPost = {
-				// content присваиваем значение newPostText из _state
-				content: this._state.Profile.newPostText,
-				likeQuantity: "0",
-				img: '',
-			}
-			this._state.Profile.postsData.push(newPost);
-			this._callSubscriber(this._state);
-			this._state.Profile.newPostText = "";
-		} else if (action.type === updatePostText) {
-			// изменяем текущий newPostText на новый, который нам пришел
-			this._state.Profile.newPostText = action.newText;
-			// перерисовываем spa
-			this._callSubscriber(this._state);
-		}
+debugger
+		this._state.Profile = profileReducer(this._state.Profile, action)
+		this._state.Dialogs = dialogsReducer(this._state.Dialogs, action)
+		this._state.Sidebar = sidebarReducer(this._state.Sidebar, action)
+
+		this._callSubscriber(this._state);
+
+		// if (action.type === addPost) {
+		// 	let newPost = {
+		// 		// content присваиваем значение newPostText из _state
+		// 		content: this._state.Profile.newPostText,
+		// 		likeQuantity: "0",
+		// 		img: '',
+		// 	}
+		// 	this._state.Profile.postsData.push(newPost);
+		// 	this._callSubscriber(this._state);
+		// 	this._state.Profile.newPostText = "";
+		// } else if (action.type === updatePostText) {
+		// 	// изменяем текущий newPostText на новый, который нам пришел
+		// 	this._state.Profile.newPostText = action.newText;
+		// 	// перерисовываем spa
+		// 	this._callSubscriber(this._state);
+		// } else if (action.type === addMessage) {
+		// 	let newMessage = {
+		// 		message: this._state.Dialogs.newMessageText,
+		// 		who: "me" 
+		// 	}
+		// 	this._state.Dialogs.messagesData.push(newMessage);
+		// 	this._callSubscriber(this._state);
+		// 	this._state.Dialogs.newMessageText = "";
+		// } else if (action.type === updateMessageText) {
+		// 	// изменяем текущий newPostText на новый, который нам пришел
+		// 	this._state.Dialogs.newMessageText = action.newText;
+		// 	// перерисовываем spa
+		// 	this._callSubscriber(this._state);
+		// }
 	},
 
 
