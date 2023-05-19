@@ -1,7 +1,6 @@
 import React from 'react';
 import css from './OurPosts.module.css';
-import Posts from './Posts/Posts';
-import { addPostCreator, updatePostTextCreator } from '../../../Redux/ProfileReducer';
+import Post from './Posts/Post/Post';
 
 
 const OurPosts = (props) => {
@@ -13,7 +12,7 @@ const OurPosts = (props) => {
 	 * 2) вызываем addPost передав переменную text
 	 */
 	let addNewPost = () => {
-		props.dispatch(addPostCreator());
+		props.addNewPostContainer();
 	}
 
 	/**
@@ -23,7 +22,7 @@ const OurPosts = (props) => {
 	 */
 	let changePost = (e) => {
 		let text = e.target.value;
-		props.dispatch(updatePostTextCreator(text));
+		props.changePostContainer(text)
 	}
 
 	return (
@@ -37,7 +36,7 @@ const OurPosts = (props) => {
 
 				<div className={css.posts}>
 					new posts
-					<Posts state={props.state} />
+					<Post state={props.state} addPost={props.addPost} />
 				</div>
 			</div>
 		</div>

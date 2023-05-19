@@ -2,9 +2,9 @@ import React from 'react';
 import css from './Post.module.css';
 
 
-const RenderPost = (props)=>{
-	return props.state.postsData.map(el=>{
-		return(
+const RenderPost = (props) => {
+	return props.state.map(el => {
+		return (
 			<div>
 				<div className={css.item}>
 					<img src={el.img} alt="" />
@@ -19,11 +19,10 @@ const RenderPost = (props)=>{
 }
 
 const Post = (props) => {
-	
 	return (
 		<RenderPost state={props.state} />
 	)
-	}
+}
 
 
 export default Post;

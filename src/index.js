@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import  store  from './Redux/redux-store';
+import store from './Redux/redux-store';
+import StoreContext from './StoreContext';
 
 
 
@@ -12,7 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderApp = (state) => {
 	root.render(
 		<React.StrictMode>
-			<App state={state} dispatch={store.dispatch.bind(store)} />
+			<StoreContext.Provider value={store}>
+				{/* <App state={state} dispatch={store.dispatch.bind(store)} store={store} /> */}
+				<App />
+
+			</StoreContext.Provider>
 		</React.StrictMode>
 	);
 }
@@ -21,9 +26,10 @@ export let rerenderApp = (state) => {
 rerenderApp(store.getState());
 
 // методу store subscribe мы отдаем в качестве параметра функцию rerenderApp
-store.subscribe(()=>{
+store.subscribe(() => {
 	let state = store.getState()
 	rerenderApp(state)
+
 });
 
 
