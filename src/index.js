@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export let rerenderApp = (state) => {
+
 	root.render(
 		<React.StrictMode>
 			<Provider store={store}>
@@ -19,17 +19,17 @@ export let rerenderApp = (state) => {
 			</Provider>
 		</React.StrictMode>
 	);
-}
 
-// вызываем метод перерисовки с учетом текущего state 
-rerenderApp(store.getState());
 
-// методу store subscribe мы отдаем в качестве параметра функцию rerenderApp
-store.subscribe(() => {
-	let state = store.getState()
-	rerenderApp(state)
+// // вызываем метод перерисовки с учетом текущего state 
+// rerenderApp(store.getState());
 
-});
+// // методу store subscribe мы отдаем в качестве параметра функцию rerenderApp
+// store.subscribe(() => {
+// 	let state = store.getState()
+// 	rerenderApp(state)
+
+// });
 
 
 // If you want to start measuring performance in your app, pass a function
