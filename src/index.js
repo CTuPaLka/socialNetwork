@@ -4,8 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import store from './Redux/redux-store';
-import StoreContext from './StoreContext';
-
+// import StoreContext from './StoreContext';
+import { Provider } from 'react-redux';
 
 
 
@@ -13,11 +13,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderApp = (state) => {
 	root.render(
 		<React.StrictMode>
-			<StoreContext.Provider value={store}>
-				{/* <App state={state} dispatch={store.dispatch.bind(store)} store={store} /> */}
+			<Provider store={store}>
 				<App />
 
-			</StoreContext.Provider>
+			</Provider>
 		</React.StrictMode>
 	);
 }
