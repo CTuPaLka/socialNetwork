@@ -1,10 +1,7 @@
-import React from 'react';
-import css from './sidebar_friends.module.css';
-import SidebarFriends from './sidebar_friends';
-import StoreContext from '../../../StoreContext';
 import { connect } from 'react-redux';
+import SidebarFriends from './sidebar_friends';
 
-// const SidebarFriendsConstructor = (props) => {
+// const SidebarFriendsContainer = (props) => {
 
 // 	return <StoreContext.Consumer>
 // 		{store => {
@@ -54,6 +51,6 @@ let mapDispatchToProps=()=>{
 
 
 
-let SidebarFriendsConstructor = connect(mapStateToProps, mapDispatchToProps)(SidebarFriends);
+let SidebarFriendsContainer = connect(mapStateToProps, mapDispatchToProps)(SidebarFriends);
 
-export default SidebarFriendsConstructor;
+export default SidebarFriendsContainer;

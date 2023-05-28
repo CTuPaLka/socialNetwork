@@ -1,7 +1,7 @@
 import React from 'react';
-import css from './Sidebar.module.css';
 import { NavLink } from 'react-router-dom';
-import SidebarFriendsConstructor from './sidebar_friends/sidebar_friendsConstructor';
+import css from './Sidebar.module.css';
+import SidebarFriendsContainer from './sidebar_friends/sidebar_friendsConstructor';
 
 const setActive = (props) => { return ({ isActive }) => isActive ? css.active + ' ' + css.item : css.item }
 
@@ -15,7 +15,7 @@ const Sidebar = (props) => {
 				<NavLink className={setActive()} to="/music">Music</NavLink>
 				<NavLink className={setActive()} to="/settings">Settings</NavLink>
 			</nav>
-			<SidebarFriendsConstructor />
+			<SidebarFriendsContainer />
 		</div>
 
 	)
